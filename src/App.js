@@ -7,27 +7,32 @@ import { CreateToDoButton } from "./CreateToDoButton";
 // import './App.css';
 
 const toDo = [
-  {text: 'Paso 1', completed: false},
+  {text: 'Paso 1', completed: true},
   {text: 'Paso 2', completed: false},
   {text: 'Paso 3', completed: false}
-]
+];
 
 function App() {
   return (
     <React.Fragment>
       <ToDoCounter />
 
-    <ToDoSearch />
+      <ToDoSearch />
 
-    <ToDoList>
-      {toDo.map(todo => (
-        <ToDoItem key={todo.text} text={todo.text} />
-      ))}
-    </ToDoList>
+      <ToDoList>
+        {toDo.map(todo => (
+          <ToDoItem
+            key={todo.text}
+            text={todo.text}
+            completed = {todo.completed}
+          />
+        ))}
+      </ToDoList>
 
-    <CreateToDoButton />
+      <CreateToDoButton />
     </React.Fragment>
   );
+
 }
 
 export default App;
