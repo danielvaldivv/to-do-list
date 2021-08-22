@@ -8,7 +8,7 @@ import { CreateToDoButton } from "./CreateToDoButton";
 
 const defaultToDo = [
   {text: 'Paso 1', completed: true},
-  {text: 'Paso 2', completed: true},
+  {text: 'Paso 2', completed: false},
   {text: 'Paso 3', completed: false},
   {text: 'Correr', completed: false}
 ];
@@ -33,9 +33,24 @@ function App() {
 
   }
 
+  const completeToDo = (text) => {
+    const toDoIndex = toDos.findIndex(todo => todo.text === text);
+    const newToDos = [...toDos];
+    newToDos[toDoIndex].completed = true;
+    setToDos(newToDos);
+    };
+
+    const deleteToDo = (text) => {
+    const toDoIndex = toDos.findIndex(todo => todo.text === text);
+    const newToDos = [...toDos];
+    newToDos.splice(toDoIndex, 1);
+    setToDos(newToDos)
+    }
+
+
   return (
     <React.Fragment>
-      <ToDoCounter 
+      <ToDoCounter
         total = {totalToDos}
         completed = {completedToDos}
       />
@@ -51,6 +66,8 @@ function App() {
             key={todo.text}
             text={todo.text}
             completed = {todo.completed}
+            onComplete = {() => completeToDo(todo.text)}
+            onDelete = {() => deleteToDo(todo.text)}
           />
         ))}
       </ToDoList>
