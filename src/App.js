@@ -6,21 +6,47 @@ import { ToDoItem } from "./ToDoItem";
 import { CreateToDoButton } from "./CreateToDoButton";
 // import './App.css';
 
-const toDo = [
+const defaultToDo = [
   {text: 'Paso 1', completed: true},
-  {text: 'Paso 2', completed: false},
-  {text: 'Paso 3', completed: false}
+  {text: 'Paso 2', completed: true},
+  {text: 'Paso 3', completed: false},
+  {text: 'Correr', completed: false}
 ];
 
 function App() {
+  const [toDos, setToDos] = React.useState(defaultToDo);
+  const [searchValue, setSearchValue] = React.useState('');
+
+  const completedToDos = toDos.filter(todo => !!todo.completed).length
+  const totalToDos = toDos.length
+
+  let searchedToDos = [];
+
+  if(!searchValue.length >= 1) {
+    searchedToDos = toDos;
+  } else {
+    searchedToDos = toDos.filter(todo => {
+      const toDoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return toDoText.includes(searchText);
+    })
+
+  }
+
   return (
     <React.Fragment>
-      <ToDoCounter />
+      <ToDoCounter 
+        total = {totalToDos}
+        completed = {completedToDos}
+      />
 
-      <ToDoSearch />
+      <ToDoSearch
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
 
       <ToDoList>
-        {toDo.map(todo => (
+        {searchedToDos.map(todo => (
           <ToDoItem
             key={todo.text}
             text={todo.text}
