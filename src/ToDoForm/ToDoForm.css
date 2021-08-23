@@ -1,0 +1,86 @@
+form {
+  width: 90%;
+  max-width: 300px;
+  background-color: #fff;
+  padding: 33px 40px;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+label {
+  text-align: center;
+  font-weight: bold;
+  font-size: #1E1E1F;
+  margin-bottom: 26px;
+}
+
+textarea {
+  background-color: #F9FBFC;
+  border: 2px, solid #202329;
+  border-radius: 5px;
+  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+  color: #1E1E1F;
+  font-size: 20px;
+  text-align: center;
+  padding: 12px;
+  height: 96px;
+  width: calc(100%-25px);
+}
+
+textarea::placeholder {
+color: #a5a5a5;
+font-family: 'Montserrat';
+font-weight: 400;
+}
+
+textarea:focus {
+  outline-color: #61DAFA;
+}
+
+.ToDoForm-buttonContainer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.ToDoForm-button {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  color: #202329;
+  font-weight: 400;
+  width: 120px;
+  height: 48px;
+  border-radius: 2px;
+  border: none;
+  font-family: 'Montserrat';
+}
+
+.ToDoForm-button-add {
+  background-color: #61DAFA;
+  box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
+}
+
+.ToDoForm-button-add:hover {
+  background-color: #4caf50;
+
+}
+.ToDoForm-button-add:active{
+  background-color: #1ee225;
+}
+
+.ToDoForm-button-cancel {
+  background: transparent;
+}
+
+.ToDoForm-button-cancel:hover {
+  background-color: tomato;
+}
+
+.ToDoForm-button-cancel:active {
+  background-color: #f00;
+}

@@ -36,6 +36,11 @@
   left: 12px;
   transform: rotate(180deg)
 }
+
+.Icon-check:hover {
+  color: #61DAFA;
+}
+
 .Icon-check--active {
   color: #4caf50;
 }

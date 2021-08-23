@@ -4,8 +4,10 @@ import { ToDoCounter } from "../ToDoCounter";
 import { ToDoSearch } from "../ToDoSearch";
 import { ToDoList } from "../ToDoList";
 import { ToDoItem } from "../ToDoItem";
+import { ToDoForm } from "../ToDoForm";
 import { CreateToDoButton } from "../CreateToDoButton";
 import { Modal } from "../Modal";
+
 
 function AppUI() {
   const {
@@ -41,7 +43,7 @@ function AppUI() {
 
     {!!openModal && (
       <Modal>
-        <p>React Portals</p>
+        <ToDoForm />
       </Modal>
     )}
 

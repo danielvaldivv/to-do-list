@@ -3,7 +3,8 @@
 }
 
 body {
-  margin: 0;
+  max-width: 900px;
+  margin: 0 auto;
   padding: 0;
   background-color: whitesmoke;
   color: #333333;

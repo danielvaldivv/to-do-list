@@ -5,7 +5,7 @@
   border-radius: 50%;
   cursor: pointer;
   font-size: 50px;
-  position: fixed;
+  position: absolute;
   bottom: 24px;
   right: 24px;
   font-weight: bold;
@@ -16,6 +16,7 @@
   height: 64px;
   width: 64px;
 
+
   transform: rotate(0);
   transition: .3s ease;
   z-index: 1;
@@ -23,4 +24,5 @@
 
 .CreateToDoButton:hover {
   transform: rotate(224deg);
+  background-color: #4caf50;
 }
