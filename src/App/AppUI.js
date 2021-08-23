@@ -7,6 +7,7 @@ import { ToDoItem } from "../ToDoItem";
 import { ToDoForm } from "../ToDoForm";
 import { CreateToDoButton } from "../CreateToDoButton";
 import { Modal } from "../Modal";
+import './App.css'
 
 
 function AppUI() {
@@ -28,7 +29,7 @@ function AppUI() {
     <ToDoList>
       {error && <p>ERROR!</p> }
       {loading && <p>Loading...</p> }
-      {(!loading && !searchedToDos.length)  && <p>Crea tu primer ToDo</p> }
+      {(!loading && !searchedToDos.length)  && <p>No tienes ninguna tarea, crea tu primer ToDo</p> }
 
       {searchedToDos.map(todo => (
         <ToDoItem
