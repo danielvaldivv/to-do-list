@@ -2,9 +2,7 @@ import React from "react";
 // import { ToDoSearch } from "../ToDoSearch";
 import { useLocalStorage } from "./useLocalStorage";
 
-const ToDoContext = React.createContext();
-
-function ToDoProvider(props) {
+function useToDos() {
   const {
     item: toDos,
     saveItem: saveToDos,
@@ -39,7 +37,7 @@ function ToDoProvider(props) {
     });
     saveToDos(newToDos);
   };
-  
+
   const completeToDo = (text) => {
     const toDoIndex = toDos.findIndex(todo => todo.text === text);
     const newToDos = [...toDos];
@@ -53,25 +51,20 @@ function ToDoProvider(props) {
     newToDos.splice(toDoIndex, 1);
     saveToDos(newToDos)
   }
-  return (
-    <ToDoContext.Provider value={{
-      loading,
-      error,
-      totalToDos,
-      completedToDos,
-      searchValue,
-      setSearchValue,
-      searchedToDos,
-      addToDo,
-      completeToDo,
-      deleteToDo,
-      openModal,
-      setOpenModal,
-    }}>
-      { props.children }
-    </ToDoContext.Provider>
+  return {
+    loading,
+    error,
+    totalToDos,
+    completedToDos,
+    searchValue,
+    setSearchValue,
+    searchedToDos,
+    addToDo,
+    completeToDo,
+    deleteToDo,
+    openModal,
+    setOpenModal,
+  };
+};
 
-  );
-}
-
-export { ToDoContext, ToDoProvider }
+export { useToDos };
