@@ -8,6 +8,8 @@ import { ToDoItem } from "../ToDoItem";
 import { ToDoForm } from "../ToDoForm";
 import { CreateToDoButton } from "../CreateToDoButton";
 import { Modal } from "../Modal";
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+
 import './App.css'
 
 function App() {
@@ -32,12 +34,10 @@ function App() {
       <ToDoCounter
         totalToDos={totalToDos}
         completedToDos={completedToDos}
-        // loading={loading}
       />
       <ToDoSearch
         searchValue={searchValue}
         setSearchValue={setSearchValue}
-        // loading={loading}
       />
     </ToDoHeader>
 
@@ -77,6 +77,8 @@ function App() {
     <CreateToDoButton
       setOpenModal = {setOpenModal}
     />
+
+    <ChangeAlertWithStorageListener />
   </React.Fragment>
   );
 
